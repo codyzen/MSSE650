@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C33D5FE21A7DA9AE00CDAD2D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33D5FE11A7DA9AE00CDAD2D /* DetailViewController.m */; };
 		C3CB2B621A7C433100207DAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B611A7C433100207DAF /* main.m */; };
 		C3CB2B651A7C433100207DAF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B641A7C433100207DAF /* AppDelegate.m */; };
 		C3CB2B681A7C433100207DAF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B671A7C433100207DAF /* ViewController.m */; };
@@ -16,7 +17,6 @@
 		C3CB2B7C1A7C433100207DAF /* WorkoutTracker2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B7B1A7C433100207DAF /* WorkoutTracker2Tests.m */; };
 		C3CB2B871A7D907700207DAF /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B861A7D907700207DAF /* Workout.m */; };
 		C3CB2B8C1A7D91B400207DAF /* WorkoutSvcCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B8B1A7D91B400207DAF /* WorkoutSvcCache.m */; };
-		C3CB2B8F1A7D9C9D00207DAF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B8E1A7D9C9D00207DAF /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C33D5FE01A7DA9AE00CDAD2D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		C33D5FE11A7DA9AE00CDAD2D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		C3CB2B5C1A7C433100207DAF /* WorkoutTracker2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutTracker2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3CB2B601A7C433100207DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3CB2B611A7C433100207DAF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -48,8 +50,6 @@
 		C3CB2B891A7D910900207DAF /* WorkoutSvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvc.h; sourceTree = "<group>"; };
 		C3CB2B8A1A7D91B400207DAF /* WorkoutSvcCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvcCache.h; sourceTree = "<group>"; };
 		C3CB2B8B1A7D91B400207DAF /* WorkoutSvcCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcCache.m; sourceTree = "<group>"; };
-		C3CB2B8D1A7D9C9D00207DAF /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		C3CB2B8E1A7D9C9D00207DAF /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +96,8 @@
 				C3CB2B641A7C433100207DAF /* AppDelegate.m */,
 				C3CB2B661A7C433100207DAF /* ViewController.h */,
 				C3CB2B671A7C433100207DAF /* ViewController.m */,
-				C3CB2B8D1A7D9C9D00207DAF /* DetailViewController.h */,
-				C3CB2B8E1A7D9C9D00207DAF /* DetailViewController.m */,
+				C33D5FE01A7DA9AE00CDAD2D /* DetailViewController.h */,
+				C33D5FE11A7DA9AE00CDAD2D /* DetailViewController.m */,
 				C3CB2B691A7C433100207DAF /* Main.storyboard */,
 				C3CB2B6C1A7C433100207DAF /* Images.xcassets */,
 				C3CB2B6E1A7C433100207DAF /* LaunchScreen.xib */,
@@ -249,7 +249,7 @@
 				C3CB2B651A7C433100207DAF /* AppDelegate.m in Sources */,
 				C3CB2B621A7C433100207DAF /* main.m in Sources */,
 				C3CB2B871A7D907700207DAF /* Workout.m in Sources */,
-				C3CB2B8F1A7D9C9D00207DAF /* DetailViewController.m in Sources */,
+				C33D5FE21A7DA9AE00CDAD2D /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
