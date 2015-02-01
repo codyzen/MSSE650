@@ -7,6 +7,8 @@
 //
 
 #import "DetailViewController.h"
+#import "WorkoutSvc.h"
+#import "WorkoutSvcCache.h"
 
 @interface DetailViewController ()
 
@@ -14,10 +16,62 @@
 
 @implementation DetailViewController
 
+// Synthesize properties passed via segue
+@synthesize selectedWorkout;
+
+-(void) setSelectedWorkout:(Workout*) passedWorkout{
+    selectedWorkout = passedWorkout;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //set label to Workout name
+    self.workoutNameLbl.text = @"Workout Name";
+    //set text box to Workout name
+    self.workoutNameTxt.text = self.selectedWorkout.name;
+    
+    //set label to Location
+    self.workoutLocationLbl.text = @"Location";
+    //set text box to Location
+    self.workoutLocationTxt.text = self.selectedWorkout.location;
+    
+    //set label to Category
+    self.workoutCategoryLbl.text = @"Category";
+    //set text box to Category
+    self.workoutCategoryTxt.text = self.selectedWorkout.category;
+    
+    //if workout is not null
+    if (selectedWorkout == nil) {
+        //user is creating a new workout -- hide update and delete buttons
+        _updateWorkoutBtnHandle.hidden = YES;
+        _deleteWorkoutBtnHandle.hidden = YES;
+        
+    }else{
+        //user is creating a new workout -- hide create button
+        _createWorkoutBtnHandle.hidden = YES;
+    }
+    
+    // change the back button and add an event handler
+    /*
+    self.navigationItem.leftBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                     style:UIBarButtonItemStyleDone
+                                    target:self
+                                    action:@selector(handleBack:)];
+     */
+    
 }
+
+/*
+-(void)handleBack:(id)sender
+{
+    NSLog(@"DetailViewController::handleBack -- Entering...");
+    NSLog(@"DetailViewController::handleBack -- Exiting...");
+    [self.navigationController popToRootViewControllerAnimated:TRUE];
+}
+ */
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -33,5 +87,65 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+- (IBAction)createWorkoutBtn:(id)sender {
+    NSLog(@"DetailViewController::createWorkoutBtn -- Entering...");
+    
+    //TODO - handle empty form
+    
+    //dismiss keyboard
+    [self.view endEditing:YES];
+    //create workout
+    Workout *workoutNew = [[Workout alloc] init];
+    workoutNew.name = self.workoutNameTxt.text;
+    workoutNew.location = self.workoutLocationTxt.text;
+    workoutNew.category = self.workoutCategoryTxt.text;
+    //add new workout to data store (workout array)
+    [[WorkoutSvcCache sharedInstance] createWorkout:workoutNew];
+    NSLog(@"DetailViewController::createWorkoutBtn -- Exiting...");
+    [self.navigationController popToRootViewControllerAnimated:TRUE];
+}
+
+
+- (IBAction)updateWorkoutBtn:(id)sender {
+    NSLog(@"DetailViewController::updateWorkoutBtn -- Entering...");
+    //dismiss keyboard
+    [self.view endEditing:YES];
+    //create updated workout object
+    Workout *workoutUpdated = [[Workout alloc] init];
+    workoutUpdated.name = self.workoutNameTxt.text;
+    workoutUpdated.location = self.workoutLocationTxt.text;
+    workoutUpdated.category = self.workoutCategoryTxt.text;
+    if(selectedWorkout.name != self.workoutNameTxt.text){
+        //user is editing the workout name
+        [[WorkoutSvcCache sharedInstance] deleteWorkout:selectedWorkout];
+        [[WorkoutSvcCache sharedInstance] createWorkout:workoutUpdated];
+    }else{
+        //user is not editing the workout name
+        [[WorkoutSvcCache sharedInstance] updateWorkout:workoutUpdated];
+    }
+    
+    //TODO -- handle case where returned workout == nil (no workouts by that name exist in the array)
+
+    NSLog(@"DetailViewController::updateWorkoutBtn -- Exiting...");
+    [self.navigationController popToRootViewControllerAnimated:TRUE];
+}
+
+
+- (IBAction)deleteWorkoutBtn:(id)sender {
+    NSLog(@"DetailViewController::deleteWorkoutBtn -- Entering...");
+    //dismiss keyboard
+    [self.view endEditing:YES];
+    NSLog(@"DetailViewController::deleteWorkoutBtn -- Exiting...");
+    [self.navigationController popToRootViewControllerAnimated:TRUE];
+}
+
+
+
+//- (IBAction)doneBtn:(id)sender {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
 
 @end

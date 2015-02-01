@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oUF-MD-TLm">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -16,39 +16,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNx-ss-flg">
-                                <rect key="frame" x="0.0" y="145" width="376" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3U3-Wu-PjJ">
-                                <rect key="frame" x="373" y="158" width="31" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mk0-c1-dbO">
-                                <rect key="frame" x="133" y="285" width="110" height="30"/>
-                                <color key="backgroundColor" red="0.91109035326086962" green="0.91109035326086962" blue="0.91109035326086962" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="To Second View">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ZGO-OA-nBw" kind="popoverPresentation" popoverAnchorView="mk0-c1-dbO" id="Hn9-kh-NWE">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="adO-o8-l5r">
+                                <rect key="frame" x="0.0" y="64" width="374" height="626"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gYE-es-dNS">
+                                <rect key="frame" x="0.0" y="20" width="374" height="44"/>
+                                <items>
+                                    <navigationItem id="AAc-Jj-yNK"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Workouts" id="Ykx-Wd-jZu">
+                        <barButtonItem key="rightBarButtonItem" title="New" id="AU9-zR-oOl">
+                            <connections>
+                                <action selector="createWorkoutBtn:" destination="vXZ-lx-hvc" id="1wy-zr-Ke9"/>
+                                <segue destination="ZGO-OA-nBw" kind="show" identifier="CreateWorkout" id="ZwF-wx-o6J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="masterNavBar" destination="Ykx-Wd-jZu" id="9TT-rv-Rff"/>
+                        <outlet property="tableView" destination="adO-o8-l5r" id="DVF-dN-zmH"/>
+                        <segue destination="Zom-N8-qui" kind="show" identifier="WorkoutSelected" id="BTy-yT-9NS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130" y="125"/>
+            <point key="canvasLocation" x="1017" y="135"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Workout Detail-->
         <scene sceneID="jsW-sC-Vra">
             <objects>
                 <viewController id="ZGO-OA-nBw" customClass="DetailViewController" sceneMemberID="viewController">
@@ -60,19 +59,127 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbH-Tb-GG6">
-                                <rect key="frame" x="236" y="158" width="161" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAr-0h-IHf">
+                                <rect key="frame" x="166" y="96" width="180" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UAM-1M-XfD">
+                                <rect key="frame" x="166" y="146" width="180" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="roc-7G-UwG">
+                                <rect key="frame" x="166" y="195" width="180" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3c-Fn-pMg">
+                                <rect key="frame" x="88" y="291" width="112" height="30"/>
+                                <state key="normal" title="Update Workout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateWorkoutBtn:" destination="ZGO-OA-nBw" eventType="touchUpInside" id="F9h-9c-KAo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EgI-di-Ypd">
+                                <rect key="frame" x="91" y="345" width="106" height="30"/>
+                                <state key="normal" title="Delete Workout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteWorkoutBtn:" destination="ZGO-OA-nBw" eventType="touchUpInside" id="QtW-0k-shE"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Workout Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l53-mV-4tv">
+                                <rect key="frame" x="27" y="100" width="115" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOC-Hr-m3v">
+                                <rect key="frame" x="27" y="150" width="67" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcC-tj-ShW">
+                                <rect key="frame" x="27" y="199" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Z5-ME-A61">
+                                <rect key="frame" x="93" y="318" width="102" height="30"/>
+                                <state key="normal" title="Ceate Workout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createWorkoutBtn:" destination="ZGO-OA-nBw" eventType="touchUpInside" id="Dmc-KR-h49"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Workout Detail" id="cKh-m7-yUy">
+                        <barButtonItem key="backBarButtonItem" title="Workouts" id="tRp-eZ-Was"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="createWorkoutBtnHandle" destination="6Z5-ME-A61" id="VDR-5C-VSi"/>
+                        <outlet property="deleteWorkoutBtnHandle" destination="EgI-di-Ypd" id="h73-Tg-ckn"/>
+                        <outlet property="detailNavBar" destination="cKh-m7-yUy" id="Xwt-TL-pTR"/>
+                        <outlet property="updateWorkoutBtnHandle" destination="D3c-Fn-pMg" id="vld-tf-BZO"/>
+                        <outlet property="workoutCategoryLbl" destination="xcC-tj-ShW" id="YeH-9T-bIC"/>
+                        <outlet property="workoutCategoryTxt" destination="roc-7G-UwG" id="wW9-TG-EoM"/>
+                        <outlet property="workoutLocationLbl" destination="FOC-Hr-m3v" id="oqG-l5-EkT"/>
+                        <outlet property="workoutLocationTxt" destination="UAM-1M-XfD" id="KDG-Vn-md1"/>
+                        <outlet property="workoutNameLbl" destination="l53-mV-4tv" id="eZu-i1-Ta6"/>
+                        <outlet property="workoutNameTxt" destination="kAr-0h-IHf" id="eZ1-wb-JFm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWf-na-OuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="859" y="135"/>
+            <point key="canvasLocation" x="2483" y="135"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wUT-Ju-1F7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oUF-MD-TLm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Ds-Pp-CvQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="z9f-b4-J9w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Mr-Sk-lB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="205" y="135"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xiR-LD-Vke">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zom-N8-qui" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RCD-KW-lpX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZGO-OA-nBw" kind="relationship" relationship="rootViewController" id="Rrz-VI-J8M"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eHm-VI-vDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1749" y="135"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZwF-wx-o6J"/>
+    </inferredMetricsTieBreakers>
 </document>

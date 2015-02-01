@@ -46,26 +46,36 @@
 }
 
 - (NSMutableArray *) retrieveAllWorkouts {
+    NSLog(@"WorkoutSvcCache::retrieveAllWorkouts -- Entering...");
+    NSLog(@"WorkoutSvcCache::retrieveAllWorkouts -- Exiting...");
     return self.workouts;
 }
 
 - (Workout *) updateWorkout: (Workout *) workout { return workout;
+    NSLog(@"WorkoutSvcCache::updateWorkout -- Entering...");
     
     //Note: until we implement a DB, treating workout.name as the unique ientifier
     
+    bool exists = false;
+    int index = 0;
+    
     //iterate through array to find index where workout name exists
-    int i;
-    for (i = 0; i < [self.workouts count]; i++) {
+    for (int i = 0; i < [self.workouts count]; i++) {
         Workout *arrayElement = [self.workouts objectAtIndex:i];
         if(workout.name == arrayElement.name){
             //i is the index we want to replace at
+            index = i;
+            exists = true;
             break;
         }
     }
-    if(i < [self.workouts count]){   //there was a match
+    if(exists){   //there was a match
         //replace objet at index#
-        [self.workouts replaceObjectAtIndex:i withObject:workout];
-    } else {
+        [self.workouts replaceObjectAtIndex:index withObject:workout];
+        NSLog(@"WorkoutSvcCache::updateWorkout -- Exiting...");
+        return workout;
+    } else {    //there was not a match
+        NSLog(@"WorkoutSvcCache::updateWorkout -- Exiting...");
         return nil;
         //when using update method, if result == 0 call createWorkout
     }
@@ -76,16 +86,21 @@
     
     //Note: until we implement a DB, treating workout.name as the unique ientifier
     
+    bool exists = false;
+    int index = 0;
+    
     //iterate through array to find index where workout name exists
-    int i;
-    for (i = 0; i < [self.workouts count]; i++) {
+    for (int i = 0; i < [self.workouts count]; i++) {
         Workout *arrayElement = [self.workouts objectAtIndex:i];
         if(workout.name == arrayElement.name){
             //i is the index we want to remove
+            exists = true;
+            index = i;
             break;
         }
     }
-    [self.workouts removeObjectAtIndex:i];
+    NSLog([NSString stringWithFormat:@"exists = %d", index]);
+    [self.workouts removeObjectAtIndex:index];
     
     return workout;
     
