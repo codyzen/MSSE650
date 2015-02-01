@@ -80,16 +80,10 @@
     
     //dismiss keyboard
     [self.view endEditing:YES];
-    //create workout
     
-    NSLog(@"self.workoutNameTxt.text: %@",self.workoutNameTxt.text);
-    NSLog(@"(self.workoutNameTxt.text != nil): %d",(self.workoutNameTxt != nil));
-    NSLog(@"(self.workoutNameTxt.text == nil): %d",(self.workoutNameTxt == nil));
-    
-    if (self.workoutNameTxt.text != nil){
-        //This is not working, returning true when it is nil XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    if([self.workoutNameTxt.text length] != 0){
+        //a workout name was entered, create workout
         NSLog(@"DetailViewController::createWorkoutBtn -- a workout name was entered");
-        //a workout name was entered
         Workout *workoutNew = [[Workout alloc] init];
         workoutNew.name = self.workoutNameTxt.text;
         workoutNew.location = self.workoutLocationTxt.text;
