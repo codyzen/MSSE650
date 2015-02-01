@@ -51,7 +51,8 @@
     return self.workouts;
 }
 
-- (Workout *) updateWorkout: (Workout *) workout { return workout;
+- (Workout *) updateWorkout: (Workout *) workout {
+    //return workout;
     NSLog(@"WorkoutSvcCache::updateWorkout -- Entering...");
     
     //Note: until we implement a DB, treating workout.name as the unique ientifier

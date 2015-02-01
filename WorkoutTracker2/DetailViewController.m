@@ -53,25 +53,8 @@
         _createWorkoutBtnHandle.hidden = YES;
     }
     
-    // change the back button and add an event handler
-    /*
-    self.navigationItem.leftBarButtonItem =
-    [[UIBarButtonItem alloc] initWithTitle:@"Done"
-                                     style:UIBarButtonItemStyleDone
-                                    target:self
-                                    action:@selector(handleBack:)];
-     */
-    
 }
 
-/*
--(void)handleBack:(id)sender
-{
-    NSLog(@"DetailViewController::handleBack -- Entering...");
-    NSLog(@"DetailViewController::handleBack -- Exiting...");
-    [self.navigationController popToRootViewControllerAnimated:TRUE];
-}
- */
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -98,12 +81,23 @@
     //dismiss keyboard
     [self.view endEditing:YES];
     //create workout
-    Workout *workoutNew = [[Workout alloc] init];
-    workoutNew.name = self.workoutNameTxt.text;
-    workoutNew.location = self.workoutLocationTxt.text;
-    workoutNew.category = self.workoutCategoryTxt.text;
-    //add new workout to data store (workout array)
-    [[WorkoutSvcCache sharedInstance] createWorkout:workoutNew];
+    
+    NSLog(@"self.workoutNameTxt.text: %@",self.workoutNameTxt.text);
+    NSLog(@"(self.workoutNameTxt.text != nil): %d",(self.workoutNameTxt != nil));
+    NSLog(@"(self.workoutNameTxt.text == nil): %d",(self.workoutNameTxt == nil));
+    
+    if (self.workoutNameTxt.text != nil){
+        //This is not working, returning true when it is nil XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        NSLog(@"DetailViewController::createWorkoutBtn -- a workout name was entered");
+        //a workout name was entered
+        Workout *workoutNew = [[Workout alloc] init];
+        workoutNew.name = self.workoutNameTxt.text;
+        workoutNew.location = self.workoutLocationTxt.text;
+        workoutNew.category = self.workoutCategoryTxt.text;
+        //add new workout to data store (workout array)
+        [[WorkoutSvcCache sharedInstance] createWorkout:workoutNew];
+    }
+    
     NSLog(@"DetailViewController::createWorkoutBtn -- Exiting...");
     [self.navigationController popToRootViewControllerAnimated:TRUE];
 }
@@ -138,6 +132,7 @@
     NSLog(@"DetailViewController::deleteWorkoutBtn -- Entering...");
     //dismiss keyboard
     [self.view endEditing:YES];
+    [[WorkoutSvcCache sharedInstance] deleteWorkout:selectedWorkout];
     NSLog(@"DetailViewController::deleteWorkoutBtn -- Exiting...");
     [self.navigationController popToRootViewControllerAnimated:TRUE];
 }

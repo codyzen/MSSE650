@@ -40,7 +40,7 @@
                     <connections>
                         <outlet property="masterNavBar" destination="Ykx-Wd-jZu" id="9TT-rv-Rff"/>
                         <outlet property="tableView" destination="adO-o8-l5r" id="DVF-dN-zmH"/>
-                        <segue destination="Zom-N8-qui" kind="show" identifier="WorkoutSelected" id="BTy-yT-9NS"/>
+                        <segue destination="ZGO-OA-nBw" kind="show" identifier="WorkoutSelected" id="naL-A1-zeb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -160,26 +160,8 @@
             </objects>
             <point key="canvasLocation" x="205" y="135"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xiR-LD-Vke">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zom-N8-qui" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RCD-KW-lpX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ZGO-OA-nBw" kind="relationship" relationship="rootViewController" id="Rrz-VI-J8M"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eHm-VI-vDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1749" y="135"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZwF-wx-o6J"/>
+        <segue reference="naL-A1-zeb"/>
     </inferredMetricsTieBreakers>
 </document>

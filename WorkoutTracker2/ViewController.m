@@ -40,6 +40,7 @@
     NSLog(@"ViewController::viewWillAppear -- Exiting...");
 }
 
+//is called when we come "Back" to this view
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     //reloading, which calls cellForRowAtIndexPath
@@ -112,7 +113,7 @@
         NSLog([NSString stringWithFormat:@"workout selected = %@", workoutToPass]);
         
         //Pass workout to the destination view controller
-        DetailViewController *detailViewCtrl = (DetailViewController *)[[segue destinationViewController] topViewController];
+        DetailViewController *detailViewCtrl = (DetailViewController *)[segue destinationViewController];
         detailViewCtrl.selectedWorkout = workoutToPass;
 
     }else if ([segue.identifier isEqualToString:@"CreateWorkout"]){
