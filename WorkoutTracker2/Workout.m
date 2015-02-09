@@ -10,6 +10,10 @@
 
 @implementation Workout
 
+static NSString *const NAME = @"name";
+static NSString *const LOCATION = @"location";
+static NSString *const CATEGORY = @"category";
+
 //Workout constructor implementation
 - (instancetype)initWithDay:(NSInteger)day month:(NSInteger)month year:(NSInteger)year name:(NSString *)name location:(NSString *)location category:(NSString *)category{
     //initialize Workout with super
@@ -27,6 +31,29 @@
 
 - (NSString *) description {
     return [NSString stringWithFormat: @"%@ %@ %@", self.name, self.location, self.category];
+}
+
+//*************************
+//* iOS Archiving methods
+//*************************
+
+- (void)encodeWithCoder:(NSCoder *)coder{
+    //encode three properties
+    //[coder encodeObject:self.name forKey:@"name"];
+    [coder encodeObject:self.name forKey:NAME];
+    [coder encodeObject:self.location forKey:LOCATION];
+    [coder encodeObject:self.category forKey:CATEGORY];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder{
+    self = [super init];
+    if (self){
+        //_name = [decoder decodeObjectForKey:@"name"];
+        _name = [decoder decodeObjectForKey:NAME];
+        _location = [decoder decodeObjectForKey:LOCATION];
+        _category = [decoder decodeObjectForKey:CATEGORY];
+    }
+    return self;
 }
 
 @end

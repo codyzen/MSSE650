@@ -17,6 +17,7 @@
 		C3CB2B7C1A7C433100207DAF /* WorkoutTracker2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B7B1A7C433100207DAF /* WorkoutTracker2Tests.m */; };
 		C3CB2B871A7D907700207DAF /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B861A7D907700207DAF /* Workout.m */; };
 		C3CB2B8C1A7D91B400207DAF /* WorkoutSvcCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B8B1A7D91B400207DAF /* WorkoutSvcCache.m */; };
+		C3E4B1FB1A8858CF000329D6 /* WorkoutSvcArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B1FA1A8858CF000329D6 /* WorkoutSvcArchive.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		C3CB2B891A7D910900207DAF /* WorkoutSvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvc.h; sourceTree = "<group>"; };
 		C3CB2B8A1A7D91B400207DAF /* WorkoutSvcCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvcCache.h; sourceTree = "<group>"; };
 		C3CB2B8B1A7D91B400207DAF /* WorkoutSvcCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcCache.m; sourceTree = "<group>"; };
+		C3E4B1F91A8858CF000329D6 /* WorkoutSvcArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvcArchive.h; sourceTree = "<group>"; };
+		C3E4B1FA1A8858CF000329D6 /* WorkoutSvcArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcArchive.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 				C3CB2B891A7D910900207DAF /* WorkoutSvc.h */,
 				C3CB2B8A1A7D91B400207DAF /* WorkoutSvcCache.h */,
 				C3CB2B8B1A7D91B400207DAF /* WorkoutSvcCache.m */,
+				C3E4B1F91A8858CF000329D6 /* WorkoutSvcArchive.h */,
+				C3E4B1FA1A8858CF000329D6 /* WorkoutSvcArchive.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 			files = (
 				C3CB2B681A7C433100207DAF /* ViewController.m in Sources */,
 				C3CB2B8C1A7D91B400207DAF /* WorkoutSvcCache.m in Sources */,
+				C3E4B1FB1A8858CF000329D6 /* WorkoutSvcArchive.m in Sources */,
 				C3CB2B651A7C433100207DAF /* AppDelegate.m in Sources */,
 				C3CB2B621A7C433100207DAF /* main.m in Sources */,
 				C3CB2B871A7D907700207DAF /* Workout.m in Sources */,

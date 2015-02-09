@@ -8,7 +8,6 @@
 
 #import "WorkoutSvcCache.h"
 
-
 @implementation WorkoutSvcCache
 
 //making WorkoutSvcCache a singleton

@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import "Workout.h"
-#import "WorkoutSvcCache.h"
+//#import "WorkoutSvcCache.h"
+#import "WorkoutSvcArchive.h"
 #import "DetailViewController.h"
 
 
@@ -21,46 +22,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"ViewControlller::viewDidLoad -- Entering...");
+    //NSLog(@"ViewControlller::viewDidLoad -- Entering...");
     //setting up dataSource and delegate
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    NSLog(@"ViewControlller::viewDidLoad -- Exiting...");
+    //NSLog(@"ViewControlller::viewDidLoad -- Exiting...");
 }
 
 - (void)didReceiveMemoryWarning {
-    NSLog(@"ViewControlller::didReceiveMemoryWarning -- Entering...");
+    //NSLog(@"ViewControlller::didReceiveMemoryWarning -- Entering...");
      [super didReceiveMemoryWarning];
      // Dispose of any resources that can be recreated.
-     NSLog(@"ViewControlller::didReceiveMemoryWarning -- Exiting...");
+     //NSLog(@"ViewControlller::didReceiveMemoryWarning -- Exiting...");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"ViewController::viewWillAppear -- Entering...");
-    NSLog(@"ViewController::viewWillAppear -- Exiting...");
+    //NSLog(@"ViewController::viewWillAppear -- Entering...");
+    //NSLog(@"ViewController::viewWillAppear -- Exiting...");
 }
 
 //is called when we come "Back" to this view
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    //NSLog(@"ViewController::viewDidAppear -- Entering...");
     //reloading, which calls cellForRowAtIndexPath
     [self.tableView reloadData];
+    //NSLog(@"ViewController::viewDidAppear -- Exiting...");
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"ViewController::numberOfRowsInSection -- Entering...");
-    NSLog([NSString stringWithFormat:@"retrieveAllWorkouts count = %lu", (unsigned long)[[[WorkoutSvcCache sharedInstance] retrieveAllWorkouts] count]]);
+    //NSLog(@"ViewController::numberOfRowsInSection -- Entering...");
+    //NSLog([NSString stringWithFormat:@"retrieveAllWorkouts count = %lu", (unsigned long)[[[WorkoutSvcCache sharedInstance] retrieveAllWorkouts] count]]);
     //return self.workouts.count;
-    NSLog(@"ViewController::numberOfRowsInSection -- Exiting...");
-    return [[[WorkoutSvcCache sharedInstance] retrieveAllWorkouts] count];
+    //NSLog(@"ViewController::numberOfRowsInSection -- Exiting...");
+    return [[[WorkoutSvcArchive sharedInstance] retrieveAllWorkouts] count];
 }
 
 
 //only called when new cells scroll onto the screen, or if table hasn't been displayed before, or if you call reload (tableView.reload?)
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSLog(@"ViewController::cellForRowAtIndexPath -- Entering...");
+    //NSLog(@"ViewController::cellForRowAtIndexPath -- Entering...");
     
     NSString *cellId = @"workoutCellId";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
@@ -68,14 +71,15 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
     
-    Workout *workout = [[[WorkoutSvcCache sharedInstance] retrieveAllWorkouts]objectAtIndex:indexPath.row];
+    //Workout *workout = [[[WorkoutSvcCache sharedInstance] retrieveAllWorkouts]objectAtIndex:indexPath.row];
+    Workout *workout = [[[WorkoutSvcArchive sharedInstance] retrieveAllWorkouts]objectAtIndex:indexPath.row];
     cell.textLabel.text = workout.name;
     
     
     //NSInteger row = indexPath.row;
     //Workout *workout = [self.workouts objectAtIndex:row];
     
-    NSLog(@"ViewController::cellForRowAtIndexPath -- Exiting...");
+    //NSLog(@"ViewController::cellForRowAtIndexPath -- Exiting...");
     
     return cell;
 }
@@ -106,10 +110,11 @@
     
     // Check seque identifier
     if ([segue.identifier isEqualToString:@"WorkoutSelected"]){
-        NSLog(@"ViewController::prepareForSegue -- inside WorkoutSelected if...");
+        //NSLog(@"ViewController::prepareForSegue -- inside WorkoutSelected if...");
         
         //Create workout to pass
-        Workout *workoutToPass = [[[WorkoutSvcCache sharedInstance] retrieveAllWorkouts] objectAtIndex:self.selectedItemIndex.row];
+        //Workout *workoutToPass = [[[WorkoutSvcCache sharedInstance] retrieveAllWorkouts] objectAtIndex:self.selectedItemIndex.row];
+        Workout *workoutToPass = [[[WorkoutSvcArchive sharedInstance] retrieveAllWorkouts] objectAtIndex:self.selectedItemIndex.row];
         NSLog([NSString stringWithFormat:@"workout selected = %@", workoutToPass]);
         
         //Pass workout to the destination view controller

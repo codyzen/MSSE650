@@ -8,7 +8,8 @@
 
 #import "DetailViewController.h"
 #import "WorkoutSvc.h"
-#import "WorkoutSvcCache.h"
+//#import "WorkoutSvcCache.h"
+#import "WorkoutSvcArchive.h"
 
 @interface DetailViewController ()
 
@@ -76,8 +77,6 @@
 - (IBAction)createWorkoutBtn:(id)sender {
     NSLog(@"DetailViewController::createWorkoutBtn -- Entering...");
     
-    //TODO - handle empty form
-    
     //dismiss keyboard
     [self.view endEditing:YES];
     
@@ -89,7 +88,16 @@
         workoutNew.location = self.workoutLocationTxt.text;
         workoutNew.category = self.workoutCategoryTxt.text;
         //add new workout to data store (workout array)
-        [[WorkoutSvcCache sharedInstance] createWorkout:workoutNew];
+        Workout *workoutAttempted = [[WorkoutSvcArchive sharedInstance] createWorkout:workoutNew];
+        if (workoutAttempted == nil){
+            //alert box
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Workout Already Exists"
+                                                            message:@"A workout by this name already exists.  You can update the existing workout or create a new workout with a different name."
+                                                           delegate:nil cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+
     }
     
     NSLog(@"DetailViewController::createWorkoutBtn -- Exiting...");
@@ -98,21 +106,25 @@
 
 
 - (IBAction)updateWorkoutBtn:(id)sender {
+    
     NSLog(@"DetailViewController::updateWorkoutBtn -- Entering...");
+    
     //dismiss keyboard
     [self.view endEditing:YES];
+    
     //create updated workout object
     Workout *workoutUpdated = [[Workout alloc] init];
     workoutUpdated.name = self.workoutNameTxt.text;
     workoutUpdated.location = self.workoutLocationTxt.text;
     workoutUpdated.category = self.workoutCategoryTxt.text;
+    
     if(selectedWorkout.name != self.workoutNameTxt.text){
         //user is editing the workout name
-        [[WorkoutSvcCache sharedInstance] deleteWorkout:selectedWorkout];
-        [[WorkoutSvcCache sharedInstance] createWorkout:workoutUpdated];
+        [[WorkoutSvcArchive sharedInstance] deleteWorkout:selectedWorkout];
+        [[WorkoutSvcArchive sharedInstance] createWorkout:workoutUpdated];
     }else{
         //user is not editing the workout name
-        [[WorkoutSvcCache sharedInstance] updateWorkout:workoutUpdated];
+        [[WorkoutSvcArchive sharedInstance] updateWorkout:workoutUpdated];
     }
     
     //TODO -- handle case where returned workout == nil (no workouts by that name exist in the array)
@@ -126,7 +138,7 @@
     NSLog(@"DetailViewController::deleteWorkoutBtn -- Entering...");
     //dismiss keyboard
     [self.view endEditing:YES];
-    [[WorkoutSvcCache sharedInstance] deleteWorkout:selectedWorkout];
+    [[WorkoutSvcArchive sharedInstance] deleteWorkout:selectedWorkout];
     NSLog(@"DetailViewController::deleteWorkoutBtn -- Exiting...");
     [self.navigationController popToRootViewControllerAnimated:TRUE];
 }

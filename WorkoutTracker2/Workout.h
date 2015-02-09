@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Workout : NSObject
+@interface Workout : NSObject <NSCoding>
 
 //date and name properties of a Workout object
 @property (nonatomic) NSDate *date;
