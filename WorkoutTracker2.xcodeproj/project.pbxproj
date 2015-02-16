@@ -20,6 +20,7 @@
 		C3E4B1FB1A8858CF000329D6 /* WorkoutSvcArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B1FA1A8858CF000329D6 /* WorkoutSvcArchive.m */; };
 		C3E4B1FD1A8DA119000329D6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E4B1FC1A8DA119000329D6 /* libsqlite3.dylib */; };
 		C3E4B2031A8DA2E5000329D6 /* WorkoutSvcSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2021A8DA2E5000329D6 /* WorkoutSvcSQLite.m */; };
+		C3E4B2051A91990A000329D6 /* SQLiteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2041A91990A000329D6 /* SQLiteTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		C3E4B1FC1A8DA119000329D6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		C3E4B2011A8DA2E5000329D6 /* WorkoutSvcSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvcSQLite.h; sourceTree = "<group>"; };
 		C3E4B2021A8DA2E5000329D6 /* WorkoutSvcSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcSQLite.m; sourceTree = "<group>"; };
+		C3E4B2041A91990A000329D6 /* SQLiteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				C3CB2B7B1A7C433100207DAF /* WorkoutTracker2Tests.m */,
+				C3E4B2041A91990A000329D6 /* SQLiteTests.m */,
 				C3CB2B791A7C433100207DAF /* Supporting Files */,
 			);
 			path = WorkoutTracker2Tests;
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3CB2B7C1A7C433100207DAF /* WorkoutTracker2Tests.m in Sources */,
+				C3E4B2051A91990A000329D6 /* SQLiteTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

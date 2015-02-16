@@ -97,7 +97,8 @@ sqlite3 *database = nil;
     
     NSLog(@"WorkoutSvcSQLite::createWorkout -- Entering...");
     NSLog(@"WorkoutSvcSQLite::createWorkout -- creating workout %@", workout.name);
-    //TODO get record count (via helper method?)
+    
+    //TODO call retrieve all workouts into an array and get array count, for pre-creation count
     
     //check if workout name already exists in DB using helper method
     int index = [self findWorkout:workout];
@@ -108,10 +109,7 @@ sqlite3 *database = nil;
         return nil;
     }else {
         NSLog(@"WorkoutSvcSQLite::createWorkout -- workout name does NOT exist, creating workout...");
-        
         //there was not a match, create workout by adding record
-    
-    
         sqlite3_stmt *statement;
         //construct a statement in an NSString including the SQL "insert" command
         NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO workout (name, location, category) VALUES (\"%@\", \"%@\", \"%@\")", workout.name, workout.location, workout.category];
@@ -122,7 +120,7 @@ sqlite3 *database = nil;
             if(sqlite3_step(statement) == SQLITE_DONE){
                 //update the Workout with the "last insert id"
                 workout.id = sqlite3_last_insert_rowid(database);
-                NSLog(@"*** Workout added");
+                NSLog(@"WorkoutSvcSQLite::createWorkout *** Workout added");
             } else {
                 NSLog(@"*** Workout NOT added");
                 NSLog(@"*** SQL error: %s\n", sqlite3_errmsg(database));
@@ -235,13 +233,10 @@ sqlite3 *database = nil;
     NSLog(findSQL);
     sqlite3_stmt *statement;
     
-    NSLog(@"1");
     //compile statement and check to see that the DB is open
     if (sqlite3_prepare_v2(database, [findSQL UTF8String], -1, &statement, NULL) == SQLITE_OK){
-        NSLog(@"2");
         //statement compiled successfully
         while (sqlite3_step(statement) == SQLITE_ROW) {
-            NSLog(@"3");
             //iterate through the returned records/rows
             
             //use column 0 because we only pulled back name attribute, not whole object
@@ -250,7 +245,6 @@ sqlite3 *database = nil;
             //this will handle nulls
             //NSString *tempName = ((char *)sqlite3_column_text(statement, 0)) ? [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)] : nil;             NSLog(@"tempName: %@", tempName);
             
-            NSLog(@"4");
             NSLog(@"temp: %@, wktName: %@", tempName, wktName);
             //NSLog(@"[tempName isEqualToString:wktName]: %d", ([tempName isEqualToString:wktName]));
             if([tempName isEqualToString:wktName]){
@@ -271,7 +265,7 @@ sqlite3 *database = nil;
     if(exists){//there was a match
         return rowId;
     }else{
-        NSLog(@"*** NO WORKOUT BY THIS NAME YET...");
+        NSLog(@"WorkoutSvcSQLite::findWorkout -- Workout NOT found");
         return 99999999;
     }
 }

@@ -83,7 +83,7 @@
     
     if([self.workoutNameTxt.text length] != 0){
         //a workout name was entered, create workout
-        NSLog(@"DetailViewController::createWorkoutBtn -- a workout name was entered");
+        NSLog(@"DetailViewController::createWorkoutBtn -- a workout name was entered for creation");
         Workout *workoutNew = [[Workout alloc] init];
         workoutNew.name = self.workoutNameTxt.text;
         workoutNew.location = self.workoutLocationTxt.text;
