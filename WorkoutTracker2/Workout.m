@@ -13,14 +13,14 @@
 static NSString *const NAME = @"name";
 static NSString *const LOCATION = @"location";
 static NSString *const CATEGORY = @"category";
+static NSInteger *const ID = nil;
 
 //Workout constructor implementation
-- (instancetype)initWithDay:(NSInteger)day month:(NSInteger)month year:(NSInteger)year name:(NSString *)name location:(NSString *)location category:(NSString *)category{
+- (instancetype)initWithName:(NSString *)name location:(NSString *)location category:(NSString *)category{
     //initialize Workout with super
     self = [super init];
     //initialize Workout properties
     if (self) {
-        self.date = [[NSDate alloc] init];
         self.name = name;
         self.location = location;
         self.category = category;

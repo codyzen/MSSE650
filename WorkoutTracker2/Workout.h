@@ -10,13 +10,13 @@
 
 @interface Workout : NSObject <NSCoding>
 
-//date and name properties of a Workout object
-@property (nonatomic) NSDate *date;
+//properties of a Workout object
+@property (nonatomic) NSInteger *id;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *location;
 @property (nonatomic) NSString *category;
 
 //Workout constructor declaration
-- (instancetype)initWithDay:(NSInteger)day month:(NSInteger)month year:(NSInteger)year name:(NSString *)name location:(NSString *)location category:(NSString *)category;
+- (instancetype)initWithName:(NSString *)name location:(NSString *)location category:(NSString *)category;
 
 @end

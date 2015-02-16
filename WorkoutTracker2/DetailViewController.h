@@ -37,12 +37,7 @@
 
 - (IBAction)doneBtn:(id)sender;
 
-
 @property (weak, nonatomic) IBOutlet UINavigationItem *detailNavBar;
-
-
-
-
 
 - (void)setSelectedWorkout:(Workout*) passedWorkout;
 

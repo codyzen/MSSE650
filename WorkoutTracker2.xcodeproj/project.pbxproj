@@ -18,6 +18,8 @@
 		C3CB2B871A7D907700207DAF /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B861A7D907700207DAF /* Workout.m */; };
 		C3CB2B8C1A7D91B400207DAF /* WorkoutSvcCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B8B1A7D91B400207DAF /* WorkoutSvcCache.m */; };
 		C3E4B1FB1A8858CF000329D6 /* WorkoutSvcArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B1FA1A8858CF000329D6 /* WorkoutSvcArchive.m */; };
+		C3E4B1FD1A8DA119000329D6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E4B1FC1A8DA119000329D6 /* libsqlite3.dylib */; };
+		C3E4B2031A8DA2E5000329D6 /* WorkoutSvcSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2021A8DA2E5000329D6 /* WorkoutSvcSQLite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		C3CB2B8B1A7D91B400207DAF /* WorkoutSvcCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcCache.m; sourceTree = "<group>"; };
 		C3E4B1F91A8858CF000329D6 /* WorkoutSvcArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvcArchive.h; sourceTree = "<group>"; };
 		C3E4B1FA1A8858CF000329D6 /* WorkoutSvcArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcArchive.m; sourceTree = "<group>"; };
+		C3E4B1FC1A8DA119000329D6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		C3E4B2011A8DA2E5000329D6 /* WorkoutSvcSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvcSQLite.h; sourceTree = "<group>"; };
+		C3E4B2021A8DA2E5000329D6 /* WorkoutSvcSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcSQLite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E4B1FD1A8DA119000329D6 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +82,7 @@
 		C3CB2B531A7C433100207DAF = {
 			isa = PBXGroup;
 			children = (
+				C3E4B1FC1A8DA119000329D6 /* libsqlite3.dylib */,
 				C3CB2B5E1A7C433100207DAF /* WorkoutTracker2 */,
 				C3CB2B781A7C433100207DAF /* WorkoutTracker2Tests */,
 				C3CB2B5D1A7C433100207DAF /* Products */,
@@ -145,6 +152,8 @@
 				C3CB2B8B1A7D91B400207DAF /* WorkoutSvcCache.m */,
 				C3E4B1F91A8858CF000329D6 /* WorkoutSvcArchive.h */,
 				C3E4B1FA1A8858CF000329D6 /* WorkoutSvcArchive.m */,
+				C3E4B2011A8DA2E5000329D6 /* WorkoutSvcSQLite.h */,
+				C3E4B2021A8DA2E5000329D6 /* WorkoutSvcSQLite.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -255,6 +264,7 @@
 				C3CB2B651A7C433100207DAF /* AppDelegate.m in Sources */,
 				C3CB2B621A7C433100207DAF /* main.m in Sources */,
 				C3CB2B871A7D907700207DAF /* Workout.m in Sources */,
+				C3E4B2031A8DA2E5000329D6 /* WorkoutSvcSQLite.m in Sources */,
 				C33D5FE21A7DA9AE00CDAD2D /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
