@@ -129,7 +129,7 @@
         Workout *workoutToPass = [[[WorkoutSvcSQLite sharedInstance] retrieveAllWorkouts] objectAtIndex:self.selectedItemIndex.row];
         //Workout *workoutToPass = [[[[WorkoutSvcSQLite alloc] init] retrieveAllWorkouts] objectAtIndex:self.selectedItemIndex.row];
         
-        NSLog([NSString stringWithFormat:@"workout selected = %@", workoutToPass]);
+        NSLog(@"workout selected = %@", workoutToPass);
         
         //Pass workout to the destination view controller
         DetailViewController *detailViewCtrl = (DetailViewController *)[segue destinationViewController];
@@ -139,7 +139,7 @@
         NSLog(@"ViewController::prepareForSegue -- inside CreateNewWorkout if...");
         //Create workout to pass
         Workout *workoutToPass = nil;
-        NSLog([NSString stringWithFormat:@"workout selected = %@", workoutToPass]);
+        NSLog(@"workout selected = %@", workoutToPass);
         
         //Pass nil workout to the destination view controller
         DetailViewController *detailViewCtrl = [segue destinationViewController];

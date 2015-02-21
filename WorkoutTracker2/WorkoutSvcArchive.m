@@ -70,7 +70,7 @@ NSMutableArray *workouts;   //workouts array
     //do I need to read from archive here???
     
     NSLog(@"WorkoutSvcArchive::createWorkout -- Entering...");
-    NSLog([NSString stringWithFormat:@"   ...workouts count before = %lu", workouts.count]);
+    NSLog(@"   ...workouts count before = %lu", workouts.count);
     NSLog(@"   ...creating workout %@, %@, %@", workout.name, workout.location, workout.category);
     
     //check if workout name already exists in array using helper method
@@ -89,7 +89,7 @@ NSMutableArray *workouts;   //workouts array
         //write new collection to archive
         [self writeArchive];
         
-        NSLog([NSString stringWithFormat:@"   ...workouts count after = %lu", workouts.count]);
+        NSLog(@"   ...workouts count after = %lu", workouts.count);
         NSLog(@"WorkoutSvcArchive::updateWorkout -- Exiting...");
         return workout;
     }
@@ -135,7 +135,7 @@ NSMutableArray *workouts;   //workouts array
 
 - (Workout *) updateWorkout:(Workout *)workout{
     NSLog(@"WorkoutSvcArchive::updateWorkout -- Entering...");
-    NSLog([NSString stringWithFormat:@"   ...workouts count before = %lu", workouts.count]);
+    NSLog(@"   ...workouts count before = %lu", workouts.count);
     NSLog(@"   ...updating workout %@, %@, %@", workout.name, workout.location, workout.category);
     //find the workout in the workout array using helper method
     int index = [self findWorkout:workout];
@@ -145,13 +145,13 @@ NSMutableArray *workouts;   //workouts array
         //write updated workout list to the archive file
         [self writeArchive];
         NSLog(@"   ...Workout Replaced!!!");
-        NSLog([NSString stringWithFormat:@"   ...workouts count after = %lu", workouts.count]);
+        NSLog(@"   ...workouts count after = %lu", workouts.count);
         NSLog(@"WorkoutSvcArchive::updateWorkout -- Exiting...");
         return workout;
     }else {
         //there was not a match
         NSLog(@"   ...Workout Not Found...");
-        NSLog([NSString stringWithFormat:@"   ...workouts count after = %lu", workouts.count]);
+        NSLog(@"   ...workouts count after = %lu", workouts.count);
         NSLog(@"WorkoutSvcArchive::updateWorkout -- Exiting...");
         return nil;
         //when using update method, if result == 0 call createWorkout
@@ -166,7 +166,7 @@ NSMutableArray *workouts;   //workouts array
     //write updated workout list to the archive file
     
     NSLog(@"WorkoutSvcArchive::deleteWorkout -- Entering...");
-    NSLog([NSString stringWithFormat:@"   ...workouts count before = %lu", workouts.count]);
+    NSLog(@"   ...workouts count before = %lu", workouts.count);
     NSLog(@"   ...deleting workout %@, %@, %@", workout.name, workout.location, workout.category);
     
     //find the workout in the workout array using helper method
@@ -177,13 +177,13 @@ NSMutableArray *workouts;   //workouts array
         //write updated workout list to the archive file
         [self writeArchive];
         NSLog(@"   ...Workout at index %d Deleted!!!", index);
-        NSLog([NSString stringWithFormat:@"   ...workouts count after = %lu", workouts.count]);
+        NSLog(@"   ...workouts count after = %lu", workouts.count);
         NSLog(@"WorkoutSvcArchive::deleteWorkout -- Exiting...");
         return workout;
     }else {
         //there was not a match
         NSLog(@"   ...Workout Not Found...");
-        NSLog([NSString stringWithFormat:@"   ...workouts count after = %lu", workouts.count]);
+        NSLog(@"   ...workouts count after = %lu", workouts.count);
         NSLog(@"WorkoutSvcArchive::deleteWorkout -- Exiting...");
         return nil;
         //when using update method, if result == 0 call createWorkout

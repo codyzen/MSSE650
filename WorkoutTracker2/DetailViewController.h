@@ -35,7 +35,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *createWorkoutBtnHandle;
 
 
-- (IBAction)doneBtn:(id)sender;
+//- (IBAction)doneBtn:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *detailNavBar;
 

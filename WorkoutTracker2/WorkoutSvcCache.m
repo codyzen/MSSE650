@@ -34,11 +34,11 @@
     //TODO need to enforce unique constraint on workouts.name
     //i.e. iterate through array, if already exists return nill, handle nil from controller
     
-    NSLog([NSString stringWithFormat:@"workouts count before = %lu", self.workouts.count]);
+    NSLog(@"workouts count before = %lu", self.workouts.count);
     
     [self.workouts addObject: workout];
     
-    NSLog([NSString stringWithFormat:@"workouts count after = %lu", self.workouts.count]);
+    NSLog(@"workouts count after = %lu", self.workouts.count);
     
     NSLog(@"WorkoutSvcCache::createWorkout -- Exiting...");
     return workout;
@@ -99,7 +99,7 @@
             break;
         }
     }
-    NSLog([NSString stringWithFormat:@"exists = %d", index]);
+    NSLog(@"exists = %d", index);
     [self.workouts removeObjectAtIndex:index];
     
     return workout;

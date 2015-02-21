@@ -52,8 +52,8 @@
     
     WorkoutSvcArchive *workoutSvc = [[WorkoutSvcArchive alloc] init];
     
-    int count1 = [[workoutSvc retrieveAllWorkouts] count];
-    NSLog(@"Workouts count1: %i", count1);
+    NSUInteger count1 = [[workoutSvc retrieveAllWorkouts] count];
+    NSLog(@"Workouts count1: %lu", (unsigned long)count1);
     
     Workout *workout = [[Workout alloc] init];
     workout.name = @"name1";
@@ -62,8 +62,8 @@
     
     [workoutSvc createWorkout:(Workout *) workout]; //*** creating workout name1 ***
     
-    int count2 = [[workoutSvc retrieveAllWorkouts] count];
-    NSLog(@"Workouts count2: %i", count2);
+    NSUInteger count2 = [[workoutSvc retrieveAllWorkouts] count];
+    NSLog(@"Workouts count2: %lu", (unsigned long)count2);
     
     //STAssertEquals((count1 + 1), count2, @"TEST FAILURE -- count1 + 1 != count 2");
     XCTAssertEqual(count1 + 1, count2, @"TEST FAILURE -- count1 + 1 != count 2");
@@ -84,8 +84,8 @@
     
     WorkoutSvcArchive *workoutSvc = [[WorkoutSvcArchive alloc] init];
     [workoutSvc createWorkout:(Workout *) workout1];
-    int count1 = [[workoutSvc retrieveAllWorkouts] count];
-    NSLog(@"Workouts count1: %i", count1);
+    NSUInteger count1 = [[workoutSvc retrieveAllWorkouts] count];
+    NSLog(@"Workouts count1: %lu", (unsigned long)count1);
     
     Workout *workout2 = [[Workout alloc] init];
     workout2.name = @"name1";
@@ -94,8 +94,8 @@
     
     [workoutSvc createWorkout:(Workout *) workout2]; //***THIS SHOULD BE A DUPLICATE BECAUSE WE'VE ALREADY RUN TEST1
     
-    int count2 = [[workoutSvc retrieveAllWorkouts] count];
-    NSLog(@"Workouts count2: %i", count2);
+    NSUInteger count2 = [[workoutSvc retrieveAllWorkouts] count];
+    NSLog(@"Workouts count2: %lu", (unsigned long)count2);
     
     //STAssertEquals((count1 + 1), count2, @"TEST FAILURE -- count1 + 1 != count 2");
     XCTAssertEqual(count1, count2, @"TEST FAILURE -- count1 != count 2");
@@ -116,13 +116,13 @@
  
     WorkoutSvcArchive *workoutSvc = [[WorkoutSvcArchive alloc] init];
     
-    int count1 = [[workoutSvc retrieveAllWorkouts] count];
-    NSLog(@"Workouts count1: %i", count1);
+    NSUInteger count1 = [[workoutSvc retrieveAllWorkouts] count];
+    NSLog(@"Workouts count1: %lu", (unsigned long)count1);
     
     [workoutSvc updateWorkout:(Workout *) workout1];
     
-    int count2 = [[workoutSvc retrieveAllWorkouts] count];
-    NSLog(@"Workouts count2: %i", count2);
+    NSUInteger count2 = [[workoutSvc retrieveAllWorkouts] count];
+    NSLog(@"Workouts count2: %lu", (unsigned long)count2);
     
     //STAssertEquals((count1 + 1), count2, @"TEST FAILURE -- count1 + 1 != count 2");
     XCTAssertEqual(count1, count2, @"TEST FAILURE -- count1 != count 2");
@@ -144,13 +144,13 @@
     
     WorkoutSvcArchive *workoutSvc = [[WorkoutSvcArchive alloc] init];
     [workoutSvc createWorkout:(Workout *) workout1];
-    int count1 = [[workoutSvc retrieveAllWorkouts] count];
-    NSLog(@"Workouts count1: %i", count1);
+    NSUInteger count1 = [[workoutSvc retrieveAllWorkouts] count];
+    NSLog(@"Workouts count1: %lu", (unsigned long)count1);
     
     [workoutSvc deleteWorkout:(Workout *) workout1];
     
-    int count2 = [[workoutSvc retrieveAllWorkouts] count];
-    NSLog(@"Workouts count2: %i", count2);
+    NSUInteger count2 = [[workoutSvc retrieveAllWorkouts] count];
+    NSLog(@"Workouts count2: %lu", (unsigned long)count2);
     
     //STAssertEquals((count1 + 1), count2, @"TEST FAILURE -- count1 + 1 != count 2");
     XCTAssertEqual(count1 - 1, count2, @"TEST FAILURE -- count1 - 1 != count 2");

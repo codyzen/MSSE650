@@ -144,14 +144,14 @@ sqlite3 *database = nil;
         NSLog(@"*** WorkoutSvcSQLite::retrieveAllWorkouts -- Workouts retrieved");
         while (sqlite3_step(statement) == SQLITE_ROW) {
             //iterate through the returned records/rows
-            int id = sqlite3_column_int(statement, 0);
+            NSInteger id = sqlite3_column_int(statement, 0);
             char *nameChars = (char *)sqlite3_column_text(statement, 1);
             char *locationChars = (char *)sqlite3_column_text(statement, 2);
             char *categoryChars = (char *)sqlite3_column_text(statement, 3);
             
             //construct a workout
             Workout *workout = [[Workout alloc] init];
-            workout.id = id;
+            workout.id = &(id);
             workout.name = [[NSString alloc] initWithUTF8String:nameChars];
             workout.location = [[NSString alloc] initWithUTF8String:locationChars];
             workout.category = [[NSString alloc] initWithUTF8String:categoryChars];
@@ -174,7 +174,7 @@ sqlite3 *database = nil;
 - (Workout *) updateWorkout:(Workout *)workout{
     
     //construct a statement in an NSString including the SQL "update" command
-    NSString *updateSQL = [NSString stringWithFormat:@"UPDATE workout SET name=\"%@\", location=\"%@\", category=\"%@\" WHERE id = %i ", workout.name, workout.location, workout.category, workout.id];
+    NSString *updateSQL = [NSString stringWithFormat:@"UPDATE workout SET name=\"%@\", location=\"%@\", category=\"%@\" WHERE id = %tu", workout.name, workout.location, workout.category, workout.id];
     sqlite3_stmt *statement;
     //compile and execute the statement and check to see that the DB is open
     if (sqlite3_prepare_v2(database, [updateSQL UTF8String], -1, &statement, NULL) == SQLITE_OK) {
@@ -196,8 +196,8 @@ sqlite3 *database = nil;
     NSLog(@"WorkoutSvcSQLite::deleteWorkout -- Entering...");
     
     //construct a statement in an NSString including the SQL "update" command
-    NSLog(@"workout to delete:  id=%d, name=%@", workout.id, workout.name);
-    NSString *deleteSQL = [NSString stringWithFormat:@"DELETE FROM workout WHERE id = %d", workout.id];
+    NSLog(@"workout to delete:  id=%tu, name=%@", workout.id, workout.name);
+    NSString *deleteSQL = [NSString stringWithFormat:@"DELETE FROM workout WHERE id = %tu", workout.id];
     NSLog(@"deleteSQL: %@", deleteSQL);
     sqlite3_stmt *statement;
     //compile and execute the statement and check to see that the DB is open

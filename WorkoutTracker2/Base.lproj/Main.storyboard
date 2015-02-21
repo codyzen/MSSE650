@@ -59,11 +59,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAr-0h-IHf">
-                                <rect key="frame" x="166" y="96" width="180" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UAM-1M-XfD">
                                 <rect key="frame" x="166" y="146" width="180" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -119,6 +114,11 @@
                                     <action selector="createWorkoutBtn:" destination="ZGO-OA-nBw" eventType="touchUpInside" id="Dmc-KR-h49"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAr-0h-IHf">
+                                <rect key="frame" x="166" y="91" width="180" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWf-na-OuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2483" y="135"/>
+            <point key="canvasLocation" x="1793" y="135"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wUT-Ju-1F7">
@@ -158,10 +158,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Mr-Sk-lB0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="205" y="135"/>
+            <point key="canvasLocation" x="281" y="135"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="naL-A1-zeb"/>
+        <segue reference="ZwF-wx-o6J"/>
     </inferredMetricsTieBreakers>
 </document>
