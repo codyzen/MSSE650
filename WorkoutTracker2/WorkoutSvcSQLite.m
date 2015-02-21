@@ -151,7 +151,7 @@ sqlite3 *database = nil;
             
             //construct a workout
             Workout *workout = [[Workout alloc] init];
-            workout.id = &(id);
+            workout.id = id;
             workout.name = [[NSString alloc] initWithUTF8String:nameChars];
             workout.location = [[NSString alloc] initWithUTF8String:locationChars];
             workout.category = [[NSString alloc] initWithUTF8String:categoryChars];
@@ -230,7 +230,7 @@ sqlite3 *database = nil;
     NSString *wktName = workout.name;
     NSString *findSQL = [NSString stringWithFormat:@"SELECT name FROM workout WHERE name='%@'", wktName];
     //NSString *findSQL = @"SELECT * FROM workout";
-    NSLog(findSQL);
+    NSLog(@"%s", [findSQL UTF8String]);
     sqlite3_stmt *statement;
     
     //compile statement and check to see that the DB is open

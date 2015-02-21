@@ -13,7 +13,7 @@
 static NSString *const NAME = @"name";
 static NSString *const LOCATION = @"location";
 static NSString *const CATEGORY = @"category";
-static NSInteger *const ID = nil;
+static NSString *const ID = @"id";
 
 //Workout constructor implementation
 - (instancetype)initWithName:(NSString *)name location:(NSString *)location category:(NSString *)category{
@@ -40,6 +40,8 @@ static NSInteger *const ID = nil;
 - (void)encodeWithCoder:(NSCoder *)coder{
     //encode three properties
     //[coder encodeObject:self.name forKey:@"name"];
+    //TODO encode ID ???
+    [coder encodeInteger:self.id forKey:ID];
     [coder encodeObject:self.name forKey:NAME];
     [coder encodeObject:self.location forKey:LOCATION];
     [coder encodeObject:self.category forKey:CATEGORY];
@@ -48,6 +50,8 @@ static NSInteger *const ID = nil;
 - (id)initWithCoder:(NSCoder *)decoder{
     self = [super init];
     if (self){
+        //TODO decode ID ???
+        _id = [decoder decodeIntegerForKey:ID];
         //_name = [decoder decodeObjectForKey:@"name"];
         _name = [decoder decodeObjectForKey:NAME];
         _location = [decoder decodeObjectForKey:LOCATION];

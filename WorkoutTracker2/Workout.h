@@ -11,7 +11,7 @@
 @interface Workout : NSObject <NSCoding>
 
 //properties of a Workout object
-@property (nonatomic) NSInteger *id;
+@property (nonatomic) NSInteger id;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *location;
 @property (nonatomic) NSString *category;

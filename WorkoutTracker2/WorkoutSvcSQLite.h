@@ -18,6 +18,6 @@
 
 // Method declaration
 + (WorkoutSvcSQLite *)sharedInstance;
-+ (int) findWorkout:(Workout *)workout;
+- (int) findWorkout:(Workout *)workout;
 
 @end

@@ -17,7 +17,7 @@
 
 // Method declaration
 + (WorkoutSvcArchive *)sharedInstance;
-+ (int) findWorkout:(Workout *)workout;
+- (int) findWorkout:(Workout *)workout;
 
 
 @end
