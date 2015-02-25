@@ -2,21 +2,19 @@
 //  Workout.h
 //  WorkoutTracker2
 //
-//  Created by Cody McDonald on 1/29/15.
+//  Created by Cody McDonald on 2/22/15.
 //  Copyright (c) 2015 msse650. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Workout : NSObject <NSCoding>
 
-//properties of a Workout object
-@property (nonatomic) NSInteger id;
-@property (nonatomic) NSString *name;
-@property (nonatomic) NSString *location;
-@property (nonatomic) NSString *category;
+@interface Workout : NSManagedObject
 
-//Workout constructor declaration
-- (instancetype)initWithName:(NSString *)name location:(NSString *)location category:(NSString *)category;
+@property (nonatomic, retain) NSString * category;
+@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * location;
+@property (nonatomic, retain) NSString * name;
 
 @end

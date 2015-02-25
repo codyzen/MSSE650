@@ -14,13 +14,11 @@
 		C3CB2B6B1A7C433100207DAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3CB2B691A7C433100207DAF /* Main.storyboard */; };
 		C3CB2B6D1A7C433100207DAF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3CB2B6C1A7C433100207DAF /* Images.xcassets */; };
 		C3CB2B701A7C433100207DAF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3CB2B6E1A7C433100207DAF /* LaunchScreen.xib */; };
-		C3CB2B7C1A7C433100207DAF /* WorkoutTracker2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B7B1A7C433100207DAF /* WorkoutTracker2Tests.m */; };
-		C3CB2B871A7D907700207DAF /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B861A7D907700207DAF /* Workout.m */; };
-		C3CB2B8C1A7D91B400207DAF /* WorkoutSvcCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C3CB2B8B1A7D91B400207DAF /* WorkoutSvcCache.m */; };
-		C3E4B1FB1A8858CF000329D6 /* WorkoutSvcArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B1FA1A8858CF000329D6 /* WorkoutSvcArchive.m */; };
 		C3E4B1FD1A8DA119000329D6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E4B1FC1A8DA119000329D6 /* libsqlite3.dylib */; };
-		C3E4B2031A8DA2E5000329D6 /* WorkoutSvcSQLite.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2021A8DA2E5000329D6 /* WorkoutSvcSQLite.m */; };
-		C3E4B2051A91990A000329D6 /* SQLiteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2041A91990A000329D6 /* SQLiteTests.m */; };
+		C3E4B2071A994320000329D6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E4B2061A994320000329D6 /* CoreData.framework */; };
+		C3E4B20A1A99484E000329D6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2081A99484E000329D6 /* Model.xcdatamodeld */; };
+		C3E4B20F1A994A7A000329D6 /* WorkoutSvcCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B20E1A994A7A000329D6 /* WorkoutSvcCoreData.m */; };
+		C3E4B2121A9A5786000329D6 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2111A9A5786000329D6 /* Workout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,18 +46,14 @@
 		C3CB2B6F1A7C433100207DAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C3CB2B751A7C433100207DAF /* WorkoutTracker2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkoutTracker2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3CB2B7A1A7C433100207DAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C3CB2B7B1A7C433100207DAF /* WorkoutTracker2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkoutTracker2Tests.m; sourceTree = "<group>"; };
-		C3CB2B851A7D907700207DAF /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
-		C3CB2B861A7D907700207DAF /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
 		C3CB2B891A7D910900207DAF /* WorkoutSvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvc.h; sourceTree = "<group>"; };
-		C3CB2B8A1A7D91B400207DAF /* WorkoutSvcCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvcCache.h; sourceTree = "<group>"; };
-		C3CB2B8B1A7D91B400207DAF /* WorkoutSvcCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcCache.m; sourceTree = "<group>"; };
-		C3E4B1F91A8858CF000329D6 /* WorkoutSvcArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvcArchive.h; sourceTree = "<group>"; };
-		C3E4B1FA1A8858CF000329D6 /* WorkoutSvcArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcArchive.m; sourceTree = "<group>"; };
 		C3E4B1FC1A8DA119000329D6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		C3E4B2011A8DA2E5000329D6 /* WorkoutSvcSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvcSQLite.h; sourceTree = "<group>"; };
-		C3E4B2021A8DA2E5000329D6 /* WorkoutSvcSQLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcSQLite.m; sourceTree = "<group>"; };
-		C3E4B2041A91990A000329D6 /* SQLiteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLiteTests.m; sourceTree = "<group>"; };
+		C3E4B2061A994320000329D6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C3E4B2091A99484E000329D6 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C3E4B20D1A994A7A000329D6 /* WorkoutSvcCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkoutSvcCoreData.h; sourceTree = "<group>"; };
+		C3E4B20E1A994A7A000329D6 /* WorkoutSvcCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcCoreData.m; sourceTree = "<group>"; };
+		C3E4B2101A9A5786000329D6 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
+		C3E4B2111A9A5786000329D6 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E4B2071A994320000329D6 /* CoreData.framework in Frameworks */,
 				C3E4B1FD1A8DA119000329D6 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +79,7 @@
 		C3CB2B531A7C433100207DAF = {
 			isa = PBXGroup;
 			children = (
+				C3E4B2061A994320000329D6 /* CoreData.framework */,
 				C3E4B1FC1A8DA119000329D6 /* libsqlite3.dylib */,
 				C3CB2B5E1A7C433100207DAF /* WorkoutTracker2 */,
 				C3CB2B781A7C433100207DAF /* WorkoutTracker2Tests */,
@@ -103,13 +99,11 @@
 		C3CB2B5E1A7C433100207DAF /* WorkoutTracker2 */ = {
 			isa = PBXGroup;
 			children = (
+				C3E4B20C1A994A27000329D6 /* Controller */,
+				C3E4B20B1A994A10000329D6 /* Service */,
 				C3CB2B881A7D908000207DAF /* Model */,
 				C3CB2B631A7C433100207DAF /* AppDelegate.h */,
 				C3CB2B641A7C433100207DAF /* AppDelegate.m */,
-				C3CB2B661A7C433100207DAF /* ViewController.h */,
-				C3CB2B671A7C433100207DAF /* ViewController.m */,
-				C33D5FE01A7DA9AE00CDAD2D /* DetailViewController.h */,
-				C33D5FE11A7DA9AE00CDAD2D /* DetailViewController.m */,
 				C3CB2B691A7C433100207DAF /* Main.storyboard */,
 				C3CB2B6C1A7C433100207DAF /* Images.xcassets */,
 				C3CB2B6E1A7C433100207DAF /* LaunchScreen.xib */,
@@ -130,8 +124,6 @@
 		C3CB2B781A7C433100207DAF /* WorkoutTracker2Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C3CB2B7B1A7C433100207DAF /* WorkoutTracker2Tests.m */,
-				C3E4B2041A91990A000329D6 /* SQLiteTests.m */,
 				C3CB2B791A7C433100207DAF /* Supporting Files */,
 			);
 			path = WorkoutTracker2Tests;
@@ -148,17 +140,32 @@
 		C3CB2B881A7D908000207DAF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C3CB2B851A7D907700207DAF /* Workout.h */,
-				C3CB2B861A7D907700207DAF /* Workout.m */,
-				C3CB2B891A7D910900207DAF /* WorkoutSvc.h */,
-				C3CB2B8A1A7D91B400207DAF /* WorkoutSvcCache.h */,
-				C3CB2B8B1A7D91B400207DAF /* WorkoutSvcCache.m */,
-				C3E4B1F91A8858CF000329D6 /* WorkoutSvcArchive.h */,
-				C3E4B1FA1A8858CF000329D6 /* WorkoutSvcArchive.m */,
-				C3E4B2011A8DA2E5000329D6 /* WorkoutSvcSQLite.h */,
-				C3E4B2021A8DA2E5000329D6 /* WorkoutSvcSQLite.m */,
+				C3E4B2081A99484E000329D6 /* Model.xcdatamodeld */,
+				C3E4B2101A9A5786000329D6 /* Workout.h */,
+				C3E4B2111A9A5786000329D6 /* Workout.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		C3E4B20B1A994A10000329D6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C3CB2B891A7D910900207DAF /* WorkoutSvc.h */,
+				C3E4B20D1A994A7A000329D6 /* WorkoutSvcCoreData.h */,
+				C3E4B20E1A994A7A000329D6 /* WorkoutSvcCoreData.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		C3E4B20C1A994A27000329D6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C3CB2B661A7C433100207DAF /* ViewController.h */,
+				C3CB2B671A7C433100207DAF /* ViewController.m */,
+				C33D5FE01A7DA9AE00CDAD2D /* DetailViewController.h */,
+				C33D5FE11A7DA9AE00CDAD2D /* DetailViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,12 +269,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3CB2B681A7C433100207DAF /* ViewController.m in Sources */,
-				C3CB2B8C1A7D91B400207DAF /* WorkoutSvcCache.m in Sources */,
-				C3E4B1FB1A8858CF000329D6 /* WorkoutSvcArchive.m in Sources */,
+				C3E4B20F1A994A7A000329D6 /* WorkoutSvcCoreData.m in Sources */,
+				C3E4B2121A9A5786000329D6 /* Workout.m in Sources */,
 				C3CB2B651A7C433100207DAF /* AppDelegate.m in Sources */,
 				C3CB2B621A7C433100207DAF /* main.m in Sources */,
-				C3CB2B871A7D907700207DAF /* Workout.m in Sources */,
-				C3E4B2031A8DA2E5000329D6 /* WorkoutSvcSQLite.m in Sources */,
+				C3E4B20A1A99484E000329D6 /* Model.xcdatamodeld in Sources */,
 				C33D5FE21A7DA9AE00CDAD2D /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,8 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3CB2B7C1A7C433100207DAF /* WorkoutTracker2Tests.m in Sources */,
-				C3E4B2051A91990A000329D6 /* SQLiteTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +476,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C3E4B2081A99484E000329D6 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C3E4B2091A99484E000329D6 /* Model.xcdatamodel */,
+			);
+			currentVersion = C3E4B2091A99484E000329D6 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C3CB2B541A7C433100207DAF /* Project object */;
 }

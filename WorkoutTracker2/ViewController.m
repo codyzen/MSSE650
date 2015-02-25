@@ -10,7 +10,8 @@
 #import "Workout.h"
 //#import "WorkoutSvcCache.h"
 //#import "WorkoutSvcArchive.h"
-#import "WorkoutSvcSQLite.h"
+//#import "WorkoutSvcSQLite.h"
+#import "WorkoutSvcCoreData.h"
 #import "DetailViewController.h"
 
 
@@ -58,7 +59,7 @@
     //return self.workouts.count;
     NSLog(@"ViewController::numberOfRowsInSection -- calling retrieveAllWorkouts...");
     NSLog(@"ViewController::numberOfRowsInSection -- Exiting...");
-    return [[[WorkoutSvcSQLite sharedInstance] retrieveAllWorkouts] count];
+    return [[[WorkoutSvcCoreData sharedInstance] retrieveAllWorkouts] count];
     //return [[[[WorkoutSvcSQLite alloc] init] retrieveAllWorkouts] count];
 
 }
@@ -78,7 +79,7 @@
     NSLog(@"ViewController::cellForRowAtIndexPath -- calling retrieveAllWorkouts...");
     //Workout *workout = [[[WorkoutSvcCache sharedInstance] retrieveAllWorkouts]objectAtIndex:indexPath.row];
     //Workout *workout = [[[WorkoutSvcArchive sharedInstance] retrieveAllWorkouts]objectAtIndex:indexPath.row];
-    Workout *workout = [[[WorkoutSvcSQLite sharedInstance] retrieveAllWorkouts]objectAtIndex:indexPath.row];
+    Workout *workout = [[[WorkoutSvcCoreData sharedInstance] retrieveAllWorkouts]objectAtIndex:indexPath.row];
     cell.textLabel.text = workout.name;
     
     
@@ -126,7 +127,7 @@
         
         //Create workout to pass
         //Workout *workoutToPass = [[[WorkoutSvcCache sharedInstance] retrieveAllWorkouts] objectAtIndex:self.selectedItemIndex.row];
-        Workout *workoutToPass = [[[WorkoutSvcSQLite sharedInstance] retrieveAllWorkouts] objectAtIndex:self.selectedItemIndex.row];
+        Workout *workoutToPass = [[[WorkoutSvcCoreData sharedInstance] retrieveAllWorkouts] objectAtIndex:self.selectedItemIndex.row];
         //Workout *workoutToPass = [[[[WorkoutSvcSQLite alloc] init] retrieveAllWorkouts] objectAtIndex:self.selectedItemIndex.row];
         
         NSLog(@"workout selected = %@", workoutToPass);

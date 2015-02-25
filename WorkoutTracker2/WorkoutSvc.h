@@ -11,9 +11,12 @@
 
 @protocol WorkoutSvc <NSObject>
 
-- (Workout *) createWorkout: (Workout *) workout;
-- (NSMutableArray *) retrieveAllWorkouts;
-- (Workout *) updateWorkout: (Workout *) workout;
+//- (Workout *) createWorkout: (Workout *) workout;
+- (Workout *) createWorkout:(NSString *)category location:(NSString *)location name:(NSString *)name;
+//- (NSMutableArray *) retrieveAllWorkouts;
+- (NSArray *) retrieveAllWorkouts;  //CoreData return type is NSArray, not NSMutableArray
+//- (Workout *) updateWorkout: (Workout *) workout;
+- (void) updateWorkout;
 - (Workout *) deleteWorkout: (Workout *) workout;
 
 @end

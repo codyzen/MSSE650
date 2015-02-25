@@ -10,7 +10,10 @@
 #import "WorkoutSvc.h"
 //#import "WorkoutSvcCache.h"
 //#import "WorkoutSvcArchive.h"
-#import "WorkoutSvcSQLite.h"
+//#import "WorkoutSvcSQLite.h"
+#import "WorkoutSvcCoreData.h"
+#import <CoreData/CoreData.h>
+//#import "Workout.h" //!!!!
 
 @interface DetailViewController ()
 
@@ -23,6 +26,7 @@
 
 -(void) setSelectedWorkout:(Workout*) passedWorkout{
     selectedWorkout = passedWorkout;
+    NSLog(@"workout selected: %@, %@, %@, %@", passedWorkout.id, passedWorkout.name, passedWorkout.location, passedWorkout.category);
 }
 
 - (void)viewDidLoad {
@@ -84,52 +88,52 @@
     if([self.workoutNameTxt.text length] != 0){
         //a workout name was entered, create workout
         NSLog(@"DetailViewController::createWorkoutBtn -- a workout name was entered for creation");
-        Workout *workoutNew = [[Workout alloc] init];
-        workoutNew.name = self.workoutNameTxt.text;
-        workoutNew.location = self.workoutLocationTxt.text;
-        workoutNew.category = self.workoutCategoryTxt.text;
-        //add new workout to data store (workout array)
-        Workout *workoutAttempted = [[WorkoutSvcSQLite sharedInstance] createWorkout:workoutNew];
-        if (workoutAttempted == nil){
-            //alert box
+        if([self workoutExists:self.workoutNameTxt.text]){
+            //workout already exists, show alert box
+            NSLog(@"DetailViewController::createWorkoutBtn -- workout already exists!!!!");
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Workout Already Exists"
                                                             message:@"A workout by this name already exists.  You can update the existing workout or create a new workout with a different name."
                                                            delegate:nil cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
             [alert show];
+        } else {
+            //workout doesn't already exists, can create it
+            Workout *workoutAttempted = [[WorkoutSvcCoreData sharedInstance] createWorkout:self.workoutCategoryTxt.text location:self.workoutLocationTxt.text name:self.workoutNameTxt.text];
+            NSLog(@"DetailViewController::createWorkoutBtn -- workout created: %@, %@, %@", workoutAttempted.name, workoutAttempted.location, workoutAttempted.category);
         }
-
     }
-    
     NSLog(@"DetailViewController::createWorkoutBtn -- Exiting...");
     [self.navigationController popToRootViewControllerAnimated:TRUE];
 }
 
 
 - (IBAction)updateWorkoutBtn:(id)sender {
-    
     NSLog(@"DetailViewController::updateWorkoutBtn -- Entering...");
-    
     //dismiss keyboard
     [self.view endEditing:YES];
     
-    //create updated workout object
-    Workout *workoutUpdated = [[Workout alloc] init];
-    workoutUpdated.name = self.workoutNameTxt.text;
-    workoutUpdated.location = self.workoutLocationTxt.text;
-    workoutUpdated.category = self.workoutCategoryTxt.text;
-    
-    if(selectedWorkout.name != self.workoutNameTxt.text){
-        //user is editing the workout name
-        [[WorkoutSvcSQLite sharedInstance] deleteWorkout:selectedWorkout];
-        [[WorkoutSvcSQLite sharedInstance] createWorkout:workoutUpdated];
-    }else{
+    if([selectedWorkout.name isEqualToString:self.workoutNameTxt.text]) {
         //user is not editing the workout name
-        [[WorkoutSvcSQLite sharedInstance] updateWorkout:workoutUpdated];
+        selectedWorkout.location = self.workoutLocationLbl.text;
+        selectedWorkout.category = self.workoutCategoryTxt.text;
+        [[WorkoutSvcCoreData sharedInstance] updateWorkout];
+    }else{
+        //user is editing the workout name...
+        if([self workoutExists:self.workoutNameTxt.text]){
+            //workout already exists, show alert box
+            NSLog(@"DetailViewController::createWorkoutBtn -- workout already exists!!!!");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Workout Already Exists"
+                                                            message:@"A workout by this name already exists.  You can update the existing workout or create a new workout with a different name."
+                                                           delegate:nil cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        } else {
+            //workout does not already exist, create new workout
+            [[WorkoutSvcCoreData sharedInstance] deleteWorkout:selectedWorkout];
+            [[WorkoutSvcCoreData sharedInstance] createWorkout:self.workoutCategoryTxt.text location:self.workoutLocationTxt.text name:self.workoutNameTxt.text];
+        }
     }
     
-    //TODO -- handle case where returned workout == nil (no workouts by that name exist in the array)
-
     NSLog(@"DetailViewController::updateWorkoutBtn -- Exiting...");
     [self.navigationController popToRootViewControllerAnimated:TRUE];
 }
@@ -139,15 +143,27 @@
     NSLog(@"DetailViewController::deleteWorkoutBtn -- Entering...");
     //dismiss keyboard
     [self.view endEditing:YES];
-    [[WorkoutSvcSQLite sharedInstance] deleteWorkout:selectedWorkout];
+    
+    [[WorkoutSvcCoreData sharedInstance] deleteWorkout:selectedWorkout];
     NSLog(@"DetailViewController::deleteWorkoutBtn -- Exiting...");
     [self.navigationController popToRootViewControllerAnimated:TRUE];
 }
 
 
+- (BOOL) workoutExists:(NSString *) name {
+    bool exists = false;
+    NSString *tempName = @"";
+    NSArray *workouts = [[WorkoutSvcCoreData sharedInstance] retrieveAllWorkouts];
+    for(Workout *workout in workouts){
+        tempName = workout.name;
+        if([tempName isEqualToString:name]){
+            //workout exists!
+            exists = true;
+            break;
+        }
+    }
+    return exists;
+}
 
-//- (IBAction)doneBtn:(id)sender {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
 
 @end
