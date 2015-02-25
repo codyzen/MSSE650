@@ -67,6 +67,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 /*
 #pragma mark - Navigation
 
@@ -76,7 +77,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 
 
 - (IBAction)createWorkoutBtn:(id)sender {
@@ -114,7 +114,7 @@
     
     if([selectedWorkout.name isEqualToString:self.workoutNameTxt.text]) {
         //user is not editing the workout name
-        selectedWorkout.location = self.workoutLocationLbl.text;
+        selectedWorkout.location = self.workoutLocationTxt.text;
         selectedWorkout.category = self.workoutCategoryTxt.text;
         [[WorkoutSvcCoreData sharedInstance] updateWorkout];
     }else{

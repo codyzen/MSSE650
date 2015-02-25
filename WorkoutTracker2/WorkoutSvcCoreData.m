@@ -68,11 +68,6 @@ NSManagedObjectContext *moc = nil;
 }
 
 
-//- (Workout *) createWorkout:(Workout *) workout{
-//    return workout;
-//}
-
-
 - (Workout *) createWorkout:(NSString *)category
                     location:(NSString *)location
                         name:(NSString *)name {
@@ -92,23 +87,6 @@ NSManagedObjectContext *moc = nil;
     return managedWorkout;
 }
 
-//- (Workout *) createWorkout: (Workout*) workout {
-//    NSLog(@"WorkoutSvcCoreData::createWorkout -- Entering...");
-//    //create managed object
-//    Workout *managedWorkout = [self createManagedWorkout];
-//    //set properties of managed object
-//    managedWorkout.name = workout.name;
-//    managedWorkout.location = workout.location;
-//    managedWorkout.category = workout.category;
-//    NSError *error;
-//    //save the context
-//    if (![moc save:&error]) {
-//        NSLog(@"createWorkout ERROR: %@", [error localizedDescription]);
-//    }
-//    NSLog(@"WorkoutSvcCoreData::createWorkout -- Exiting...");
-//    return managedWorkout;
-//}
-
 
 - (Workout *) createManagedWorkout{
     NSLog(@"WorkoutSvcCoreData::createManagedWorkout -- Entering...");
@@ -118,25 +96,15 @@ NSManagedObjectContext *moc = nil;
 }
 
 
-//- (NSMutableArray *) retrieveAllWorkouts {
-//    return nil;
-//}
-
-
 - (NSArray *) retrieveAllWorkouts {
     NSLog(@"WorkoutSvcCoreData::retrieveAllWorkouts -- Entering...");
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSLog(@"1");
     //construct the fetch request;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Workout" inManagedObjectContext:moc];
-    NSLog(@"2");
     [fetchRequest setEntity:entity];
-    NSLog(@"3");
     //sort workouts by name, ascending
     NSSortDescriptor *sortDescriptor =[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    NSLog(@"4");
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
-    NSLog(@"5");
     NSError *error;
     //execute the fetch request
     NSArray *fetchedObjects = [moc executeFetchRequest:fetchRequest error:&error];
@@ -145,12 +113,6 @@ NSManagedObjectContext *moc = nil;
 }
 
 
-//- (Workout *) updateWorkout:(Workout *)workout {
-//    return workout;
-//}
-
-
-//- (Workout *) updateWorkout: (Workout *) workout {
 - (void) updateWorkout {
     NSLog(@"WorkoutSvcCoreData::updateWorkout -- Entering...");
     NSError *error;
@@ -158,13 +120,7 @@ NSManagedObjectContext *moc = nil;
         NSLog(@"updateWorkout ERROR: %@", [error localizedDescription]);
     }
     NSLog(@"WorkoutSvcCoreData::updateWorkout -- Exiting...");
-    //return workout;
 }
-
-
-//- (Workout *) deleteWorkout:(Workout *)workout {
-//    return workout;
-//}
 
 
 - (Workout *) deleteWorkout: (Workout *) workout {
@@ -173,8 +129,6 @@ NSManagedObjectContext *moc = nil;
     NSLog(@"WorkoutSvcCoreData::deleteWorkout -- Exiting...");
     return workout;
 }
-
-
 
 
 @end
