@@ -13,7 +13,7 @@
 //#import "WorkoutSvcSQLite.h"
 #import "WorkoutSvcCoreData.h"
 #import <CoreData/CoreData.h>
-//#import "Workout.h" //!!!!
+
 
 @interface DetailViewController ()
 
@@ -88,7 +88,8 @@
     if([self.workoutNameTxt.text length] != 0){
         //a workout name was entered, create workout
         NSLog(@"DetailViewController::createWorkoutBtn -- a workout name was entered for creation");
-        if([self workoutExists:self.workoutNameTxt.text]){
+        //if([self workoutExists:self.workoutNameTxt.text]){
+        if([[WorkoutSvcCoreData sharedInstance] workoutExists:self.workoutNameTxt.text]){
             //workout already exists, show alert box
             NSLog(@"DetailViewController::createWorkoutBtn -- workout already exists!!!!");
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Workout Already Exists"
@@ -116,10 +117,10 @@
         //user is not editing the workout name
         selectedWorkout.location = self.workoutLocationTxt.text;
         selectedWorkout.category = self.workoutCategoryTxt.text;
-        [[WorkoutSvcCoreData sharedInstance] updateWorkout];
+        [[WorkoutSvcCoreData sharedInstance] updateWorkout:selectedWorkout.name];
     }else{
         //user is editing the workout name...
-        if([self workoutExists:self.workoutNameTxt.text]){
+        if([[WorkoutSvcCoreData sharedInstance] workoutExists:self.workoutNameTxt.text]){
             //workout already exists, show alert box
             NSLog(@"DetailViewController::createWorkoutBtn -- workout already exists!!!!");
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Workout Already Exists"

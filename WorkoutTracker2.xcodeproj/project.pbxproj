@@ -19,6 +19,7 @@
 		C3E4B20A1A99484E000329D6 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2081A99484E000329D6 /* Model.xcdatamodeld */; };
 		C3E4B20F1A994A7A000329D6 /* WorkoutSvcCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B20E1A994A7A000329D6 /* WorkoutSvcCoreData.m */; };
 		C3E4B2121A9A5786000329D6 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2111A9A5786000329D6 /* Workout.m */; };
+		C3E4B2141A9E9343000329D6 /* CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2131A9E9343000329D6 /* CoreDataTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		C3E4B20E1A994A7A000329D6 /* WorkoutSvcCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkoutSvcCoreData.m; sourceTree = "<group>"; };
 		C3E4B2101A9A5786000329D6 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
 		C3E4B2111A9A5786000329D6 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
+		C3E4B2131A9E9343000329D6 /* CoreDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				C3CB2B791A7C433100207DAF /* Supporting Files */,
+				C3E4B2131A9E9343000329D6 /* CoreDataTests.m */,
 			);
 			path = WorkoutTracker2Tests;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E4B2141A9E9343000329D6 /* CoreDataTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

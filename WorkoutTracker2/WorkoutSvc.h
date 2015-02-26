@@ -16,7 +16,10 @@
 //- (NSMutableArray *) retrieveAllWorkouts;
 - (NSArray *) retrieveAllWorkouts;  //CoreData return type is NSArray, not NSMutableArray
 //- (Workout *) updateWorkout: (Workout *) workout;
-- (void) updateWorkout;
+//- (void) updateWorkout;
+- (bool) updateWorkout:(NSString *)name;
 - (Workout *) deleteWorkout: (Workout *) workout;
+- (void) deleteWorkoutByName: (NSString *) name;
+- (BOOL) workoutExists:(NSString *) name;
 
 @end
