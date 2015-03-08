@@ -21,7 +21,7 @@
         <relationship name="workoutToExercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="exerciseToWorkout" inverseEntity="Exercise" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Workout" positionX="-63" positionY="-667" width="128" height="118"/>
-        <element name="Exercise" positionX="133" positionY="-756" width="128" height="208"/>
+        <element name="Workout" positionX="-63" positionY="-756" width="128" height="118"/>
+        <element name="Exercise" positionX="-54" positionY="-720" width="128" height="208"/>
     </elements>
 </model>

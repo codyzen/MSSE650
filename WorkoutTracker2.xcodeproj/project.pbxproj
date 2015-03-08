@@ -20,6 +20,9 @@
 		C3E4B20F1A994A7A000329D6 /* WorkoutSvcCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B20E1A994A7A000329D6 /* WorkoutSvcCoreData.m */; };
 		C3E4B2121A9A5786000329D6 /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2111A9A5786000329D6 /* Workout.m */; };
 		C3E4B2141A9E9343000329D6 /* CoreDataTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2131A9E9343000329D6 /* CoreDataTests.m */; };
+		C3E4B2171AA3A8AC000329D6 /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B2161AA3A8AC000329D6 /* Exercise.m */; };
+		C3E4B21B1AA3AFDC000329D6 /* ExerciseSvcCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B21A1AA3AFDC000329D6 /* ExerciseSvcCoreData.m */; };
+		C3E4B21E1AA3BAD3000329D6 /* CoreDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E4B21D1AA3BAD3000329D6 /* CoreDataMgr.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,14 @@
 		C3E4B2101A9A5786000329D6 /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workout.h; sourceTree = "<group>"; };
 		C3E4B2111A9A5786000329D6 /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workout.m; sourceTree = "<group>"; };
 		C3E4B2131A9E9343000329D6 /* CoreDataTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTests.m; sourceTree = "<group>"; };
+		C3E4B2151AA3A8AC000329D6 /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exercise.h; sourceTree = "<group>"; };
+		C3E4B2161AA3A8AC000329D6 /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Exercise.m; sourceTree = "<group>"; };
+		C3E4B2181AA3AEE9000329D6 /* ExerciseSvc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSvc.h; sourceTree = "<group>"; };
+		C3E4B2191AA3AFDC000329D6 /* ExerciseSvcCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseSvcCoreData.h; sourceTree = "<group>"; };
+		C3E4B21A1AA3AFDC000329D6 /* ExerciseSvcCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseSvcCoreData.m; sourceTree = "<group>"; };
+		C3E4B21C1AA3BAD3000329D6 /* CoreDataMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataMgr.h; sourceTree = "<group>"; };
+		C3E4B21D1AA3BAD3000329D6 /* CoreDataMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataMgr.m; sourceTree = "<group>"; };
+		C3E4B21F1AA3CB67000329D6 /* Model v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model v2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				C3E4B2081A99484E000329D6 /* Model.xcdatamodeld */,
+				C3E4B2151AA3A8AC000329D6 /* Exercise.h */,
+				C3E4B2161AA3A8AC000329D6 /* Exercise.m */,
 				C3E4B2101A9A5786000329D6 /* Workout.h */,
 				C3E4B2111A9A5786000329D6 /* Workout.m */,
 			);
@@ -156,6 +169,11 @@
 				C3CB2B891A7D910900207DAF /* WorkoutSvc.h */,
 				C3E4B20D1A994A7A000329D6 /* WorkoutSvcCoreData.h */,
 				C3E4B20E1A994A7A000329D6 /* WorkoutSvcCoreData.m */,
+				C3E4B2181AA3AEE9000329D6 /* ExerciseSvc.h */,
+				C3E4B2191AA3AFDC000329D6 /* ExerciseSvcCoreData.h */,
+				C3E4B21A1AA3AFDC000329D6 /* ExerciseSvcCoreData.m */,
+				C3E4B21C1AA3BAD3000329D6 /* CoreDataMgr.h */,
+				C3E4B21D1AA3BAD3000329D6 /* CoreDataMgr.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -274,8 +292,11 @@
 				C3CB2B681A7C433100207DAF /* ViewController.m in Sources */,
 				C3E4B20F1A994A7A000329D6 /* WorkoutSvcCoreData.m in Sources */,
 				C3E4B2121A9A5786000329D6 /* Workout.m in Sources */,
+				C3E4B21B1AA3AFDC000329D6 /* ExerciseSvcCoreData.m in Sources */,
 				C3CB2B651A7C433100207DAF /* AppDelegate.m in Sources */,
 				C3CB2B621A7C433100207DAF /* main.m in Sources */,
+				C3E4B2171AA3A8AC000329D6 /* Exercise.m in Sources */,
+				C3E4B21E1AA3BAD3000329D6 /* CoreDataMgr.m in Sources */,
 				C3E4B20A1A99484E000329D6 /* Model.xcdatamodeld in Sources */,
 				C33D5FE21A7DA9AE00CDAD2D /* DetailViewController.m in Sources */,
 			);
@@ -485,9 +506,10 @@
 		C3E4B2081A99484E000329D6 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				C3E4B21F1AA3CB67000329D6 /* Model v2.xcdatamodel */,
 				C3E4B2091A99484E000329D6 /* Model.xcdatamodel */,
 			);
-			currentVersion = C3E4B2091A99484E000329D6 /* Model.xcdatamodel */;
+			currentVersion = C3E4B21F1AA3CB67000329D6 /* Model v2.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

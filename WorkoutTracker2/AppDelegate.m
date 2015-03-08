@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CoreDataMgr.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     NSLog(@"app launched!");
+    NSLog(@"Initializing CoreDataMgr and ManagedObjectContext moc...");
+    //[CoreDataMgr sharedInstance];
     return YES;
 }
 
